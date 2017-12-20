@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap3.3.7.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Corporacion Espinoza S.A.</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Venta<span class="sr-only">(current)</span></a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Link</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuario <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Perfil</a></li>
+                <li><a href="#">Configuracion</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Cerrar sesion</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <!--Cuerpo-->
+    <div class="container">
+
+      <!-- 1. ROW -->
+      <div class="row">
+
+        <!-- 1.A Col -->
+        <div class="col-md-9">
+
+          <div class="panel panel-primary">
+            <div class="panel-heading">Lista de articulos</div>
+
+            <div class="panel-body">
+
+              <br>
+              <div class="row">
+                <div class="form-group col-sm-8">
+
+                  <input type="text" class="form-control" id="searchItem" placeholder="Buscar articulo ...">
+                </div>
+                <div class="form-group col-sm-2">
+                  <input type="number" class="form-control" id="quantity" placeholder="Cant...">
+                </div>
+                <div class="form-group col-sm-2">
+                  <button type="submit" class="btn btn-info">Agregar</button>
+                </div>
+              </div>  
+
+              <br>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th class="col-xs-1">Cantidad</th>
+                    <th class="col-xs-6">Articulo</th>
+                    <th class="col-xs-2 text-center">Precio</th>
+                    <th class="col-xs-2 text-right">Subtotal</th>
+                    <th class="col-xs-1 ">Accion</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td >
+                        <input class="form-control input-sm text-right" type="number" step="0.001" min="0" value="10'000" />
+                      </td>
+                      <td >
+                        bol Cemento andino
+                      </td>
+                      <td>
+                          <input class="form-control input-sm text-right" type="number" step="0.01" min="0" value="35'000.00" />
+                      </td>
+                      <td class="text-right">
+                          35'000.15
+                      </td>
+                      <td >
+                          
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td >
+                        <input class="form-control input-sm text-right" type="number" step="0.001" min="0" value="6'000" />
+                      </td>
+                      <td >
+                        uni Fierro arequipa
+                      </td>
+                      <td>
+                          <input class="form-control input-sm text-right" type="number" step="0.01" min="0" value="1'000.00" />
+                      </td>
+                      <td class="text-right">
+                          6'000.35
+                      </td>
+                      <td >
+                          
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td >
+                        <input class="form-control input-sm text-right" type="number" step="0.001" min="0" value="3'000" />
+                      </td>
+                      <td >
+                        uni Ladrillo pandereta
+                      </td>
+                      <td>
+                          <input class="form-control input-sm text-right" type="number" step="0.01" min="0" value="36'000.00" />
+                      </td>
+                      <td class="text-right">
+                          36'000.94
+                      </td>
+                      <td >
+                          
+                      </td>
+                    </tr>
+                </tbody>
+
+              </table>              
+
+            </div>
+
+          </div>
+
+
+        </div><!-- 1.A Col -->
+
+        <!-- 1.B Col -->
+        <div class="col-md-3">
+
+          <form>
+          <div class="panel panel-success">
+            <div class="panel-heading">Resumen</div>
+
+            <div class="panel-body" id="divSummary" >
+
+              <div class="form-group">
+                <label for="totalAmount">Total: </label><br>
+                <h2 class="text-right">S/. 11'000.00</h2>
+                <h6 class="text-right">(S/. 1'000.00 IGV)</h6>
+              </div>
+
+              <br>
+              <div class="form-group">
+                <label for="billType">Comprobante</label>
+                <select class="form-control" name="billType" id="billType">
+                  <option value="">Seleccionar</option>
+                  <option value="1">Proforma</option>
+                  <option value="2">Comprobante</option>
+                  <option value="3">Boleta electronica</option>
+                  <option value="4">Factura electronica</option>
+                </select>
+              </div>
+              <br>
+              
+              <!--inputs por query-->
+
+              <div class="form-group text-center" name="divSubmit" id="divSubmit">
+                <button type="submit" class="btn btn-primary">Terminar</button>
+              </div>
+
+            </div>
+            
+          </div>
+          </form>
+
+        </div><!-- 1.B Col -->
+
+      </div><!-- 1. ROW -->
+      
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/bootstrap3.3.7.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+        $("#billType").change(function(){
+          eraseInputsSelected();
+          showInputsBySelected($( "#billType option:selected" ).text());
+        }); 
+      });
+
+      function eraseInputsSelected(){
+        $("#divAmountPayJS").remove();
+        $("#divDocumentTypeJS").remove();
+        $("#divDocumentNumberJS").remove();
+        $("#divBusinessNameJS").remove();
+        $("#divBrJS").remove();
+      }
+
+      function showInputsBySelected(selected){
+        if (selected.match(/boleta/gi) ){
+          $("#divSubmit").before(
+              '<div class="form-group" name="divDocumentTypeJS" id="divDocumentTypeJS">' +
+                '<label for="documentType">Documento</label> ' +
+                '<select class="form-control" name="documentType" id="documentType">'+
+                  '<option value="1">DNI</option>'+
+                  '<option value="2">CARNET EXT.</option>'+
+                  '<option value="3">PASSAPORTE</option>'+
+                '</select>'+
+              '</div>' +
+
+              '<div class="form-group" name="divDocumentNumberJS" id="divDocumentNumberJS">' +
+                '<label for="documentNumber">N. de Documento</label> ' +
+                '<input type="number" class="form-control" id="documentNumber" name="documentNumber">' +
+              '</div>' +
+
+              '<div class="form-group" name="divBrJS" id="divBrJS">'+
+                '<br>'+
+              '</div>' +
+
+              '<div class="form-group" name="divAmountPayJS" id="divAmountPayJS">'+
+                '<label for="AmountPay">Monto pagado</label> '+
+                '<input type="number" class="form-control" id="AmountPay" name="AmountPay">'+
+              '</div>'
+            );
+        }
+        else if (selected.match(/factura/gi) ){
+          $("#divSubmit").before(
+              '<div class="form-group" name="divDocumentNumberJS" id="divDocumentNumberJS">' +
+                '<label for="documentNumber">RUC <span style="color:red">*</span></label> ' +
+                '<input type="number" class="form-control" id="documentNumber" name="documentNumber" required>' +
+              '</div>' +
+
+              '<div class="form-group" name="divBusinessNameJS" id="divBusinessNameJS">' +
+                '<label for="businessName">Razon social <span style="color:red">*</span></label> ' +
+                '<input type="text" class="form-control" id="businessName" name="businessName" required>' +
+              '</div>' +
+
+              '<div class="form-group" name="divBrJS" id="divBrJS">'+
+                '<br>'+
+              '</div>' +
+
+              '<div class="form-group" name="divAmountPayJS" id="divAmountPayJS">'+
+                '<label for="AmountPay">Monto pagado</label> '+
+                '<input type="number" class="form-control" id="AmountPay" name="AmountPay">'+
+              '</div>'
+            );
+        }
+        else if (selected.match(/proforma/gi) ){
+
+        }
+        else if (selected.match(/comprobante/gi) ){
+          $("#divSubmit").before(
+              '<div class="form-group" name="divAmountPayJS" id="divAmountPayJS">'+
+                '<label for="AmountPay">Monto pagado</label> '+
+                '<input type="number" class="form-control" id="AmountPay" name="AmountPay">'+
+              '</div>'
+            );
+        }
+        else {
+
+        }
+
+      }
+
+      
+    </script>
+  </body>
+</html>
