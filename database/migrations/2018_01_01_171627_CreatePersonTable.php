@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCompanyTable extends Migration
+class CreatePersonTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,21 @@ class CreateCompanyTable extends Migration
      */
     public function up()
     {
-        Schema::create('Company', function (Blueprint $table) {
-            $table->bigInteger('idCompany')->autoIncrement();
+        Schema::create('Person', function (Blueprint $table) {
+            $table->bigInteger('idPerson')->autoIncrement();
             
             $table->smallInteger('idDocumentType');
             $table->string('documentNumber', 11);
-            $table->string('legalName', 100);
-            $table->smallInteger('idCompanyState');
+            $table->string('fatherLastName', 100);
+            $table->string('motherLastName', 100);
+            $table->string('firstNames', 100);
+            $table->dateTime('birthDate');
+            $table->string('email', 100);
             $table->dateTime('registerDate');
 
             $table->unique(['idDocumentType', 'documentNumber']);
 
             $table->foreign('idDocumentType')->references('idDocumentType')->on('DocumentType');
-            $table->foreign('idCompanyState')->references('idCompanyState')->on('CompanyState');
         });
     }
 
@@ -36,6 +38,6 @@ class CreateCompanyTable extends Migration
      */
     public function down()
     {
-        Schema::drop('Company');
+        Schema::drop('Person');
     }
 }
