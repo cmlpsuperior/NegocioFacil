@@ -81,4 +81,13 @@ class CompanyController extends Controller
     {
         //
     }
+
+
+    //AJAX
+    public function searchPersonByDocument (Request $request){
+        $documentType = $request->input("documentType");
+        $documentNumber = $request->input("documentNumber");
+
+        
+    }
 }
