@@ -19,13 +19,11 @@ class CreateCompanyTable extends Migration
             $table->smallInteger('idDocumentType');
             $table->string('documentNumber', 11);
             $table->string('legalName', 100);
-            $table->smallInteger('idCompanyState');
             $table->dateTime('registerDate');
 
             $table->unique(['idDocumentType', 'documentNumber']);
 
             $table->foreign('idDocumentType')->references('idDocumentType')->on('DocumentType');
-            $table->foreign('idCompanyState')->references('idCompanyState')->on('CompanyState');
         });
     }
 
