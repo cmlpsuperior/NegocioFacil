@@ -16,7 +16,7 @@ class CreateCompanyStateTable extends Migration
         Schema::create('CompanyState', function (Blueprint $table) {
             $table->smallInteger('idCompanyState')->autoIncrement();
 
-            $table->string('name', 50);
+            $table->string('name', 50)->unique();
         });
     }
 
