@@ -19,10 +19,10 @@ class CreatePersonTable extends Migration
             $table->smallInteger('idDocumentType');
             $table->string('documentNumber', 11);
             $table->string('fatherLastName', 100);
-            $table->string('motherLastName', 100);
+            $table->string('motherLastName', 100)->nullable(true);
             $table->string('firstNames', 100);
-            $table->dateTime('birthDate');
-            $table->string('email', 100);
+            $table->dateTime('birthDate')->nullable(true);
+            $table->string('email', 100)->nullable(true);
             $table->dateTime('registerDate');
 
             $table->unique(['idDocumentType', 'documentNumber']);

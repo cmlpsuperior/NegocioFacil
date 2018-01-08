@@ -1,0 +1,1 @@
+1.- cambiar la config de BD (config/database.php) con el charset=utf8 y collection utf8_spanish_ci
