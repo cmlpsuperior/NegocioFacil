@@ -23,6 +23,7 @@ class CreatePersonTable extends Migration
             $table->string('firstNames', 100);
             $table->dateTime('birthDate')->nullable(true);
             $table->string('email', 100)->nullable(true);
+            $table->smallinteger('score')->nullable(true);
             $table->dateTime('registerDate');
 
             $table->unique(['idDocumentType', 'documentNumber']);
