@@ -8,4 +8,6 @@ class Person extends Model
 {
     protected $table = 'Person';
     protected $primaryKey = 'idPerson';
+
+    public $timestamps = false;
 }

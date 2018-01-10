@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Person;
 
 class PersonController extends Controller
 {
@@ -81,4 +82,18 @@ class PersonController extends Controller
     {
         //
     }
+
+
+    //AJAX
+    public function searchPerson(Request $request)
+    {
+        $idDocumentType = $request->input('idDocumentType');
+        $documentNumber = $request->input('documentNumber');
+        $person = Person::where('idDocumentType','=', 1)
+                            ->where('documentNumber','=', $documentNumber)
+                            ->first();
+
+        return $person;
+    }
+
 }
