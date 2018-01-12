@@ -84,7 +84,7 @@ class CompanyController extends Controller
 
 
     //AJAX
-    public function searchPersonByDocument (Request $request){
+    public function searchCompanyByDocument (Request $request){
         $documentType = $request->input("documentType");
         $documentNumber = $request->input("documentNumber");
 

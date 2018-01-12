@@ -85,7 +85,7 @@ class PersonController extends Controller
 
 
     //AJAX
-    public function searchPerson(Request $request)
+    public function searchPersonByDocument(Request $request)
     {
         $idDocumentType = $request->input('idDocumentType');
         $documentNumber = $request->input('documentNumber');
