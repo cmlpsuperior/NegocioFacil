@@ -85,9 +85,12 @@ class CompanyController extends Controller
 
     //AJAX
     public function searchCompanyByDocument (Request $request){
-        $documentType = $request->input("documentType");
-        $documentNumber = $request->input("documentNumber");
+        $idDocumentType = $request->input('idDocumentType');
+        $documentNumber = $request->input('documentNumber');
+        $company = Company::where('idDocumentType','=', $idDocumentType)
+                            ->where('documentNumber','=', $documentNumber)
+                            ->first();
 
-        
+        return $company;        
     }
 }

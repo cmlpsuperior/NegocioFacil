@@ -94,7 +94,10 @@
       </div>
     </div><!-- 1.A Col -->
 
-<form id="billForm">
+<form role="form" id="billForm" action="{{ action('SaleController@store') }}" method="POST">
+<input type="hidden" name="_method" value="POST">
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
+
     <!-- 1.B Col -->
     <div class="col-md-3">
 
@@ -125,12 +128,11 @@
 
           <br>
           <div class="form-group hidden" id="divDocumentTypeJS">
-            <label for="documentType">Documento</label> 
-            <select class="form-control input-sm" name="documentType" id="documentType">
-              <option value="1">DNI</option>
-              <option value="2">CARNET EXT.</option>
-              <option value="3">PASSAPORTE</option>
-              <option value="5">RUC</option>
+            <label for="idDocumentType">Documento</label> 
+            <select class="form-control input-sm" name="idDocumentType" id="idDocumentType">
+            @foreach( $documentTypes as $documentType )
+              <option value="{{$documentType->idDocumentType}}">{{$documentType->smallName}}</option>
+            @endforeach
             </select>
           </div>
 
@@ -178,13 +180,13 @@
       //ignore: [], //esto es para no validar input ocultos
       rules: {
         billType: "required",
-        documentType: "required",
+        idDocumentType: "required",
         documentNumber: "required",
         payment: "required"
       },
       messages: {
         billType: "llenar campo",
-        documentType: "llenar campo",
+        idDocumentType: "llenar campo",
         documentNumber: "llenar campo",
         payment: "llenar campo" 
       },

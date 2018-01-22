@@ -89,7 +89,7 @@ class PersonController extends Controller
     {
         $idDocumentType = $request->input('idDocumentType');
         $documentNumber = $request->input('documentNumber');
-        $person = Person::where('idDocumentType','=', 1)
+        $person = Person::where('idDocumentType','=', $idDocumentType)
                             ->where('documentNumber','=', $documentNumber)
                             ->first();
 
