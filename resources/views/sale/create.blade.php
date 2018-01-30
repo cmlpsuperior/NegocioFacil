@@ -20,7 +20,7 @@
               <input type="number" class="form-control input-sm" id="quantity" name="quantity"  step="1" placeholder="Cant...">
             </div>
             <div class="form-group col-sm-2">
-              <button type="button" class="btn btn-info input-sm">Agregar</button>
+              <button type="button" class="btn btn-primary input-sm">Agregar</button>
             </div>
           </div>   
 
@@ -140,7 +140,7 @@
             <div class="form-group">
               <input type="number" class="form-control input-sm" name="documentNumber" id="documentNumber" placeholder="Num. Documento">
             </div>
-            <button type="button" class="btn btn-info btn-sm">+</button>
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModalCenter">+</button>
           </div>
 
           <br><br>
@@ -160,6 +160,78 @@
     </div><!-- 1.B Col --> 
 </form>
 
+  </div>
+</div>
+
+
+<!--MODAL-->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Nuevo Cliente</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="form-group row">
+          <div class="col-sm-6">
+            <label for="mIdDocumentType">Documento</label> 
+            <select class="input-sm form-control" name="mIdDocumentType" id="mIdDocumentType">
+            @foreach( $documentTypes as $documentType )
+              <option value="{{$documentType->idDocumentType}}">{{$documentType->smallName}}</option>
+            @endforeach
+            </select>
+          </div>
+          <div class="col-sm-6">
+            <label for="mDocumentNumber">Numero doc.</label>
+            <input type="text" class="input-sm form-control" id="mDocumentNumber" name="mDocumentNumber"/>
+          </div>
+        </div>
+
+        <br>
+        <div class="form-group row">
+          <div class="col-sm-6">
+            <label for="mFatherLastName">Ap. Paterno</label> 
+            <input type="text" class="input-sm form-control" id="mFatherLastName" name="mFatherLastName"/>
+          </div>
+          <div class="col-sm-6">
+            <label for="mMotherLastName">Ap. Materno</label> 
+            <input type="text" class="input-sm form-control" id="mMotherLastName" name="mMotherLastName"/>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-6">
+            <label for="mFirstNames">Nombres</label> 
+            <input type="text" class="input-sm form-control" id="mFirstNames" name="mFirstNames"/>
+          </div>
+        </div>
+
+        <br>
+        <div class="form-group row">
+          <div class="col-sm-6">
+            <label for="mPhoneType">Tipo </label> 
+            <select class="input-sm form-control" name="mPhoneType" id="mPhoneType">
+              <option value="1">Celular</option>
+              <option value="2">Fijo</option>
+            </select>
+          </div>
+          <div class="col-sm-6">
+            <label for="mPhoneNumber">Nùmero Telf.</label> 
+            <input type="text" class="input-sm form-control" id="mPhoneNumber" name="mPhoneNumber"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Crear</button>
+      </div>
+    </div>
   </div>
 </div>
 
