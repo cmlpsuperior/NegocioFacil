@@ -193,7 +193,7 @@
           </div>
         </div>
 
-        <br>
+        <br><br>
         <div class="form-group row">
           <div class="col-sm-6">
             <label for="mFatherLastName">Ap. Paterno</label> 
@@ -211,17 +211,10 @@
           </div>
         </div>
 
-        <br>
+        <br><br>
         <div class="form-group row">
           <div class="col-sm-6">
-            <label for="mPhoneType">Tipo </label> 
-            <select class="input-sm form-control" name="mPhoneType" id="mPhoneType">
-              <option value="1">Celular</option>
-              <option value="2">Fijo</option>
-            </select>
-          </div>
-          <div class="col-sm-6">
-            <label for="mPhoneNumber">Nùmero Telf.</label> 
+            <label for="mPhoneNumber">Telefono</label> 
             <input type="text" class="input-sm form-control" id="mPhoneNumber" name="mPhoneNumber"/>
           </div>
         </div>
@@ -229,7 +222,7 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Crear</button>
+        <button type="button" class="btn btn-primary" name="btnCreateClient" id="btnCreateClient">Crear</button>
       </div>
     </div>
   </div>
@@ -273,7 +266,44 @@
       errorPlacement: function() {
         // Don't show errors
       }
-    } );
+    });
+
+
+
+    //begin: AJAX to search items
+    $("#btnCreateClient").click(function(){
+      var mIdDocumentType = $("#mIdDocumentType").val();
+      var mDocumentNumber = $("#mDocumentNumber").val();
+      var mFatherLastName = $("#mFatherLastName").val();
+      var mMotherLastName = $("#mMotherLastName").val();
+      var mFirstNames = $("#mFirstNames").val();
+      var mPhoneNumber = $("#mPhoneNumber").val();
+      var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+      var myUrl="{{ action('PersonController@createPerson') }}";
+
+
+      $.ajax({        
+        type: "POST",   
+        url: myUrl,
+        dataType : "JSON",
+        data: {
+          idDocumentType: mIdDocumentType,
+          documentNumber: mDocumentNumber,
+          fatherLastName: mFatherLastName,
+          motherLastName: mMotherLastName,
+          firstNames: mFirstNames,
+          phoneNumber: mPhoneNumber
+        },
+        success: function(data){
+          console.log(data);
+        },
+        error: function (e) {
+          console.log(e.responseText);
+        },
+      });
+
+    });
+    //End: AJAX para actualizar la busqueda del modal
 
   });
 

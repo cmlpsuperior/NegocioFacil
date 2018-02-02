@@ -93,4 +93,5 @@ class CompanyController extends Controller
 
         return $company;        
     }
+
 }

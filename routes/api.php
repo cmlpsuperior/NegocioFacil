@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get('/searchPersonByDocument', 'PersonController@searchPersonByDocument');
+Route::post('/createPerson', 'PersonController@createPerson');

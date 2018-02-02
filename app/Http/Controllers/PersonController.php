@@ -96,4 +96,35 @@ class PersonController extends Controller
         return $person;
     }
 
+    public function createPerson(Request $request)
+    {
+        $idDocumentType = $request->input('idDocumentType');
+        $documentNumber = $request->input('documentNumber');
+        $fatherLastName = $request->input('fatherLastName');
+        $motherLastName = $request->input('motherLastName');
+        $firstNames = $request->input('firstNames');
+        $registerDate = $request->input('registerDate');
+
+        try {
+            $person = new Person();
+            $person->idDocumentType= $idDocumentType;
+            $person->documentNumber= $documentNumber;
+            $person->fatherLastName= $fatherLastName;
+            $person->motherLastName= $motherLastName;
+            $person->firstNames= $firstNames;
+            $person->registerDate= date("Y-m-d H:i:s");
+            $person->save();
+
+            return  json_encode([   'Result'=>1,
+                                    'Data'=>$person
+                            ]);
+
+        } catch (Illuminate\Database\QueryException $e) {
+            return  json_encode([   'Result'=>0,
+                                    'Data'=>null
+                            ]);
+        }
+
+    }
+
 }
