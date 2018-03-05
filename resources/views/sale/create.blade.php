@@ -1,5 +1,9 @@
 @extends  ('layout')
 
+@section('link')
+<link href="{!! asset('css/jquery-ui.min.css') !!}" rel="stylesheet">
+@endsection
+
 @section('body')
 
 <!--Cuerpo-->
@@ -232,11 +236,21 @@
 @endsection
 
 @section('script')
+<script type="text/javascript" src="{!! asset('js/jquery-ui.min.js') !!}"></script>
 <script type="text/javascript" src="{!! asset('js/jquery.validate.min.js') !!}"></script>
 
 <script >
   $(document).ready(function(){
 
+
+  //1. Search items
+      //get all items 
+    $("#searchItem").autocomplete({
+      source: {!! json_encode($itemsToSearch) !!}
+    });
+
+
+    //2. bill changed
     $("#billType").change(function(){
       changeDivBillType($( "#billType option:selected" ).text());
     });
@@ -270,7 +284,7 @@
 
 
 
-    //begin: AJAX to search items
+    //begin: AJAX to create client
     $("#btnCreateClient").click(function(){
       var mIdDocumentType = $("#mIdDocumentType").val();
       var mDocumentNumber = $("#mDocumentNumber").val();
@@ -304,6 +318,8 @@
 
     });
     //End: AJAX para actualizar la busqueda del modal
+
+
 
   });
 

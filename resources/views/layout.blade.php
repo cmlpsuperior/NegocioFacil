@@ -8,6 +8,8 @@
     <!-- Bootstrap CSS -->
     <link href="{!! asset('css/bootstrap.min.css') !!}" rel="stylesheet">
 
+    @yield('link')
+
   </head>
   <body>
     <nav class="navbar navbar-default">

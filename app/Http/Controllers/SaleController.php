@@ -15,8 +15,14 @@ class SaleController extends Controller
     public function create()
     {
         $documentTypes = DocumentType::all();
+        $itemsToSearch = array("Cemento sol","Cemento andino","ladrillo lark","ladrillo pandereta","Arena gruesa", 
+                    "Cemento sol 2","Cemento andino 2","ladrillo lark 2","ladrillo pandereta 2","Arena gruesa 2",
+                    "Cemento sol 3","Cemento andino 3","ladrillo lark 3","ladrillo pandereta 3","Arena gruesa 3");
 
-        return view('sale.create', ['documentTypes'=>$documentTypes]);
+        //dd($itemsToSearch);
+        return view('sale.create', ['documentTypes'=>$documentTypes,
+                                    'itemsToSearch'=>$itemsToSearch
+                                    ]);
     }
 
     public function store(Request $request)
