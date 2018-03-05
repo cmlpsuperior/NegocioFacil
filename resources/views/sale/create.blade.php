@@ -246,7 +246,7 @@
   //1. Search items
       //get all items 
     $("#searchItem").autocomplete({
-      source: {!! json_encode($itemsToSearch) !!}
+      source: {!! $itemsToSearch !!}
     });
 
 
